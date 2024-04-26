@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace TodoListApp2
 {
@@ -21,7 +19,43 @@ namespace TodoListApp2
             tasksListBox.IntegralHeight = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.Load += Form1_Load;
+            this.FormClosing += Form1_FormClosing;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LoadTasks();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveTasks();
+        }
+
+        private void SaveTasks()
+        {
+            string filePath = "tasks.json";
+            List<string> tasks = tasksListBox.Items.Cast<string>().ToList();
+            string json = JsonConvert.SerializeObject(tasks, Formatting.Indented);
+            File.WriteAllText(filePath, json);
+        }
+
+        private void LoadTasks()
+        {
+            string filePath = "tasks.json";
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                List<string> tasks = JsonConvert.DeserializeObject<List<string>>(json);
+                tasksListBox.Items.Clear();
+                foreach (var task in tasks)
+                {
+                    tasksListBox.Items.Add(task);
+                }
+            }
+        }
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Delete && tasksListBox.Focused)
@@ -31,6 +65,7 @@ namespace TodoListApp2
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
         private void addButton_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(taskTextBox.Text))
@@ -55,6 +90,7 @@ namespace TodoListApp2
             }
             taskTextBox.Focus();
         }
+
         private void removeButton_Click(object sender, EventArgs e)
         {
             if (tasksListBox.SelectedIndex != -1)
