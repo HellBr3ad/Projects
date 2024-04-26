@@ -1,0 +1,10 @@
+C:\Users\Chlebek\source\repos\TodoListApp2\TodoListApp2\bin\Debug\TodoListApp2.exe.config
+C:\Users\Chlebek\source\repos\TodoListApp2\TodoListApp2\bin\Debug\TodoListApp2.exe
+C:\Users\Chlebek\source\repos\TodoListApp2\TodoListApp2\bin\Debug\TodoListApp2.pdb
+C:\Users\Chlebek\source\repos\TodoListApp2\TodoListApp2\obj\Debug\TodoListApp2.csproj.AssemblyReference.cache
+C:\Users\Chlebek\source\repos\TodoListApp2\TodoListApp2\obj\Debug\TodoListApp2.Form1.resources
+C:\Users\Chlebek\source\repos\TodoListApp2\TodoListApp2\obj\Debug\TodoListApp2.Properties.Resources.resources
+C:\Users\Chlebek\source\repos\TodoListApp2\TodoListApp2\obj\Debug\TodoListApp2.csproj.GenerateResource.cache
+C:\Users\Chlebek\source\repos\TodoListApp2\TodoListApp2\obj\Debug\TodoListApp2.csproj.CoreCompileInputs.cache
+C:\Users\Chlebek\source\repos\TodoListApp2\TodoListApp2\obj\Debug\TodoListApp2.exe
+C:\Users\Chlebek\source\repos\TodoListApp2\TodoListApp2\obj\Debug\TodoListApp2.pdb
